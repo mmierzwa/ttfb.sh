@@ -177,7 +177,7 @@ for URL in $URLS; do
       request=$(eval $(curl "${options[@]}" "$UNCACHED_URL"))
       ttfbs+=($(echo $request | grep -oE "TTFB: .{0,7}" | cut -d' ' -f2 | sort -n));
       if [ $VERBOSE -eq 1 ]; then
-        echo "$UNCACHED_URL: $request" >&2
+        echo "$request" >&2
       else
         printf "." >&2
       fi
